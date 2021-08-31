@@ -24,6 +24,7 @@ public class FireworkDisplay extends JPanel implements ActionListener {
     private Timer timer;
 
     Firework firework = null;
+    Firework[] fireworks = new Firework[10];
 
     public static void main(String[] args) {
         new FireworkDisplay().start();
@@ -56,6 +57,10 @@ public class FireworkDisplay extends JPanel implements ActionListener {
 
     private void fire() {
         fireButton.setEnabled(false);
+        for(int i = 0; i<fireworks.length; i++) {
+        	fireworks[i] = new Firework();
+        	fireworks[i].launch();
+        }
         firework = new Firework();
         firework.launch();
         timer.start();

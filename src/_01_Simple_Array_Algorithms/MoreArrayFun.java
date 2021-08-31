@@ -10,11 +10,22 @@ import java.util.Random;
 public class MoreArrayFun {
     //1. Create a main method to test the other methods you write.
 
+	
+	
+	
+	
 	public static void main(String[] args) {
-		
+		setup();
 	}
 
-
+	static void setup() {
+		String words[] = new String[10];
+		for(int i =0; i<10; i++) {
+			words[i] = i + "";
+		}
+		
+		printRandom(words);
+	}
     //2. Write a method that takes an array of Strings and prints all the Strings in the array.
 
 	void printStr(String s[]) {
@@ -47,18 +58,35 @@ public class MoreArrayFun {
     //5. Write a method that takes an array of Strings and prints all the Strings in the array
     //   in a completely random order. Almost every run of the program should result in a different order.
 
-	Random r = new Random();
-	void printRandom(String s[]) {
+	static Random r = new Random();
+	static void printRandom(String s[]) {
+		boolean finished = false;
 		int alreadyPrinted[] = new int[s.length];
 		for(int i = 0; i<alreadyPrinted.length; i++) {
 			alreadyPrinted[i] = 0;
 		}
 		
-		int attempt = r.nextInt(s.length);
-		if(alreadyPrinted[attempt] == 0) {
-			System.out.println(s[attempt]);
-			alreadyPrinted[attempt] = 1;
+		
+		while(!finished) {
+			
+			
+			boolean test = true;
+			for(int i = 0; i<s.length; i++) {
+				if(alreadyPrinted[i] == 0) {
+					test = false;
+				}
+			}
+			if(test) {
+				finished = true;
+			}
+			
+			int attempt = r.nextInt(s.length);
+			if(alreadyPrinted[attempt] == 0) {
+				System.out.println(s[attempt]);
+				alreadyPrinted[attempt] = 1;
+			}
 		}
+		
 		
 	}
 	
