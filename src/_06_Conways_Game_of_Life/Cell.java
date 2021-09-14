@@ -52,8 +52,10 @@ public class Cell implements Drawable{
     @Override
     public void draw(Graphics g) {
         if(isAlive) {
+        	
             g.setColor(Color.BLUE);
             g.fillRect(x, y, cellSize, cellSize);
+            //System.out.println("drawn at X: " + x + " Y: " + y + " Width: " + cellSize);
         } else {
             g.setColor(Color.LIGHT_GRAY);
             g.fillRect(x, y, cellSize, cellSize);
