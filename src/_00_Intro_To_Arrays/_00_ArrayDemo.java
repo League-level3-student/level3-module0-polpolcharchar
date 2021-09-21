@@ -1,6 +1,6 @@
 package _00_Intro_To_Arrays;
 public class _00_ArrayDemo {
-	//github token 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
+	//github token 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
     public static void main(String[] args) {
 
         /*
